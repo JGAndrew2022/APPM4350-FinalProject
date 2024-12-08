@@ -17,7 +17,10 @@
 
 \section*{Numerical Solution}
 
-Let us now examine the numerical solution. We start with our PDE:
+Let us now examine a numerical solution. For this section we will
+use a different friction model, decribed later.
+
+We start with our PDE:
 
 \[
 A_{c}EU_{xx}+f_{x}(x,t)=\rho U_{tt}+\mu_{k}U_{t}+F_{dry}(U_{t})
@@ -73,24 +76,30 @@ and $U(x,\Delta t\,(n-1))$ .
 We will define the initial conditions $U_{j}^{0}\coloneqq U_{j}^{1}\coloneqq0$.
 We will set $\Delta x=\frac{1}{20}$, $\Delta t=\frac{1}{800}$, $J=21$,
 $N=81$, $A_{c}=0.1964$, $E=5\times10^{-5}$, $\rho=1100$, and $\mu_{k}=1000$.
-We will define:
+$A_{c}$is the cross sectional area, $E$ is Young's Modulus of the
+body, $\rho$ is the density, and $\mu_{k}$ is the constant for dry
+friction. Many of these values we got from the paper, Excitation of
+Faraday-like body waves in vibrated living earthworms, by Ivan S.
+Maksymov. We will define:
 
 \[
 f_{x}(x,t)=kf_{0}\cos\left(kx-\varpi t\right)
 \]
 
 where $k=\frac{3}{2}\pi$, $f_{0}=2000$, and $\varpi=\pi$. We will
-also define:
+also define a piecewise linear model for dry friction, similar to
+that used in Friction Compensation Strategy for Feed Servo Systems
+Based on Static Friction Model, by Huang, Chen:
 
 \[
 F_{dry}\left(U_{t}\right)=\begin{cases}
-F_{1}*U_{t}^{2}-F_{0} & U_{t}>0\\
+F_{1}*U_{t}-F_{0} & U_{t}>0\\
 0 & U_{t}=0\\
--a\,F_{1}*U_{t}^{2}-F_{0} & U_{t}<0
+a\,F_{1}*U_{t}-F_{0} & U_{t}<0
 \end{cases}
 \]
 
-where $F_{1}=10^{4}$, $F_{0}=10^{3}$, $a=5$.
+where $F_{1}=10^{4}$, $F_{0}=10^{3}$, $a=5$. 
 
 We can then graph $F_{dry}\left(U_{t}\right)$, and $U(x,t)$. 
 
@@ -99,7 +108,6 @@ We can then graph $F_{dry}\left(U_{t}\right)$, and $U(x,t)$.
 
 \caption{The left graph is $F_{dry}\left(U_{t}\right)$ vs. $U_{t}$. The right
 graph is $U\left(x,t\right)$vs. $x$ and $t$.}
-
 \end{figure}
 
 \begin{figure}[h]
@@ -109,4 +117,7 @@ graph is $U\left(x,t\right)$vs. $x$ and $t$.}
 by colors.}
 \end{figure}
 
+We can see that the $U$ is increasing with time meaning that the
+worm is moving forward. We can also see that the movement of the worm
+is periodic, as the worm repeatedly contracts and expands.
 \end{document}
