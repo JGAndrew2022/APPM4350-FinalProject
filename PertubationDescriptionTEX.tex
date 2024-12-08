@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{fourier}
+\begin{document}
+
+\maketitle
+
+\section{Project Description}
+\par As shall be seen, our approximation for the motion of a peristaltic crawler is a non-linear partial differential equation. Because non-linear problems are too complex to allow a uniform theory for their analytical solutions alternative methods should be applied. 
+\par The most obvious methods then are numerical solutions. Although numerical solutions can sometimes be easier to arrive at, in many cases it can be difficult to assess the accuracy of a numerical approximation without some analytical knowledge, and there can be many general features that arise from a problem which are more difficult to see with only a numerical approximation. Thereby some form of analytical solution is important in understanding our model.
+\par The method we have chosen to use in our analysis here is a perturbation method. This means that in order for us to solve our problem we will take an approximation based on a known linear solution. Using that known solution we can find nearby solutions to our non-linear problem by modifying that known solution with respect to a small parameter.  In our case, the wet friction model provides a similar linear situation to base our ultimate perturbative solution off of and our model can also be constructed to contain a necessary small parameter $\epsilon$. In our case, since we are using a mostly wet model the dry part of our equation depends on a this small parameter. A common application of perturbation theory for example, is the small perturbation upon a two body orbital system by a small third body, where we can easily find a solution for the two body motion but wish to account for the small gravitational effect of a third body. In our application, the small perturbation is non-linear dry friction instead of the small gravitational effect. It is known that many functions can be approximated or even explicitly constructed by certain types of series. 
+\begin{equation}
+    U(x,t) = U_0(x,t) + \sum_{n=1}^{m} U_n(x,t)
+    \label{eq:example_label}
+\end{equation}
+\par Where the accuracy of the above equation depends on the specific functions. This principle is used in the Taylor series method that we have used in other parts of this paper, but other methods for approximation are sometimes more useful. Particularly in our case we do not know what $U(x,t)$ is, so we cannot define $U_0(x,t)$ and $\sum_{n=1}^{m} U_n(x,t)$ based on $U(x,t)$. If we take the information we do know about $U(x,t)$ though, we can construct an asymptotic approximation. We construct this approximation by using the known linear solution that is not dependent on our small parameter and then turning the part that is dependent on this parameter into a series. Since $\epsilon$ is small, an increase in the order of $\epsilon$ upon a term will make that term become relatively small in comparison to lower order terms. This means that by constructing our series as such.
+\begin{equation}
+    U(x,t) = U_0(x,t) + \sum_{n=1}^{m} \epsilon^nU_n(x,t)
+    \label{eq:example_label}
+\end{equation}
+\par We can separate the solution into different parts based on order. It is also important to mention the definition of small here in respect to our small parameter $\epsilon$. Small just means how small we are willing to define something such that it “disappears” in comparison to lower order terms, and so the smaller our parameter the better our approximation. Likewise, how many terms we use $m$ can depend on how good we want our approximation to be, although our approximation isn’t always guaranteed to converge and as such sometimes higher $m$ values can be detrimental. Even if it doesn’t diverge though, we know that with a few terms the further terms will be of a larger order and thus have a small effect on our answer.
+\par Once we have this summation of terms for our $U(x,t)$ approximation, we merely have to put that summation back into our differential equation.
+\par An example of this process with a differential equation would procede as follows.
+\begin{equation}
+    \frac{dU}{dy} = \varepsilon U^2 
+    \quad \Rightarrow \quad
+    \frac{d}{dy}(U_0(y) + \varepsilon U_1(y) + \varepsilon^2 U_2(y)) = \varepsilon (U_0(y) + \varepsilon U_1(y) + \varepsilon^2 U_2(y))^2
+    \label{eq:original_expansion}
+\end{equation}
+
+% Requires: \usepackage{amsmath}
+\begin{equation}
+    \frac{dU_0}{dy} = 0, \quad U_0 = \text{constant}
+    \label{eq:U0}
+\end{equation}
+
+% Requires: \usepackage{amsmath}
+\begin{equation}
+    \varepsilon \frac{dU_1}{dy} = \varepsilon U_0^2, \quad U_1 = U_0^2 y + c_1
+    \label{eq:U1}
+\end{equation}
+\par But is repeated for every value up to the order you need. Sometimes an $\mathcal{O}$ will be used to indicate the truncated terms and thus the order of the possible error. This is called Big O Notation, and is written, if I were to omit my $\epsilon^2$ terms in this expansion, by $\mathcal{O}(\epsilon^2)$. As the further truncated terms will be of even higher order their effect will be even less and so our error should be represented by this notation well.
+\par There are variations upon this general method, but the fundamental method is always the same. A small parameter in our equation allows us to ignore parts of the equation and break it down into smaller pieces. 
+
+
+\end{document}
