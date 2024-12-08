@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Derivation of PDE}
+\author{David Lotoaniu}
+\date{December 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Derivation of Model}
+\par In order to evaluate our model, it is important to first understand how we derived it. The two factors influencing our motion are friction and the peristaltic waves themselves. 
+\begin{equation}
+    Friction + Wave = Locomotion
+    \label{eq:example_equation}
+\end{equation}
+\par We will first derive our wave and locomotion. As our body is soft and continuous, when we set a side of the equation to zero our equation can become as follows, which is simply derived from physical mechanics. 
+\begin{equation}
+    Elastic + Viscous + Actuation - Friction - Inertia = 0
+    \label{eq:example_equation}
+\end{equation}
+\par This equation will end up describing displacement, $U(x,t)$ which is the difference in position from rest position as based on spatial and temporal coordinates. Our initial and boundary conditions at the start and at the ends of the crawler derive from this.
+\begin{equation}
+    U(x,0) = 0, \quad \frac{dU}{dt}(x,0) = 0
+    \label{eq:initial_conditions}
+\end{equation}
+
+\begin{equation}
+    \frac{dU}{dx}(t,\text{head}) = 0, \quad \frac{dU}{dx}(t,\text{tail}) = 0
+    \label{eq:boundary_conditions}
+\end{equation}
+
+\par We can now also define each part of the model, elastic potential depends on the second position derivative of the displacement, muscle actuation on the derivative of the force, viscosity on both the time and position, inertia on the acceleration of displacement, and friction logically just on the velocity of the displacement. Thus we can form our differential equation.
+
+\begin{equation}
+   Ac \cdot E \cdot \frac{dU^2}{dx^2} + Ac \cdot \mu \cdot \frac{dU^3}{dx^2 dt} + Am \cdot \frac{df}{dx} - F \cdot \frac{du}{dt} - \rho \cdot \frac{dU^2}{dt^2} = 0
+   \label{eq:custom}
+\end{equation}
+\par For our sake certain elements of this equation will be less important, and so can be ignored. Particularly, viscosity adds a lot of complexity when the viscosity of an essentially solid crawler is minimally important, thus, we shall remove viscosity to get. 
+\begin{equation}
+   Ac \cdot E \cdot \frac{dU^2}{dx^2} + Am \cdot \frac{df}{dx} - F \cdot \frac{du}{dt} - \rho \cdot \frac{dU^2}{dt^2} = 0
+   \label{eq:custom}
+\end{equation}
+\par This model needs to be changed to adjust for a proper firction model however, and so $F \cdot \frac{du}{dt}$ must be modified. The section below deals with selecting a proper friction model.
+
+
+\end{document}
