@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[T1]{fontenc}
+\usepackage{caption}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+
+\title{%
+  APPM 4350 Exploring Equations of Peristaltic Motion \\
+  \large Methods in Applied Mathematics: Fourier Series and Boundary Value Problems: APPM 4350-002}
+\author{\\Andrew Gusty Jr, Undergraduate CU-Boulder, Dept of Applied Mathematics\\David Lotoaniu, Undergraduate CU-Boulder, Dept of Applied Mathematics\\Klara Meymaris, Undergraduate CU-Boulder, Dept of Applied Mathematics}
+% how do I align these
+
+\date{12/11/2024}
+
+\begin{document}
+
+\maketitle
+
+%taken from the original final paper overleaf doc and reformatted as I believe this fits the abstract better (third person and describes why rather than how)
+\section{Abstract}
+\par Limbless crawling is one of the most common forms of locomotion  in soft-bodied biological organisms. In particular, the locomotion mode displayed by many species of mollusks, nematodes, and even snakes is called \textit{peristaltic motion}. This type of movement is characterized by the propagation of longitudinal waves along a body in conjunction with control over the friction experienced by different parts of the body to create a preferential direction of motion (which is discussed more thoroughly in the next section).
+\par Recently, peristaltic locomotion has become increasingly relevant in the literature due to the advent of elastic metamaterials and their applications to the study of soft-bodied robotics. Because of the flexibility of such robots in tight spaces, it has been suggested that they could be applicable to minimally invasive surgeries such as colonoscopies \cite{Pipes} and the monitoring of long range sewage pipe systems \cite{Medicine}. In 2012, Tanaka et al. provided a clear mathematical expression for the mechanics of an earthworm-like organisms, which allows for analytic analysis of the equation of motion to gain insight into earthworm speed, efficiency, and key characteristics of motion \cite{Tanaka}.
+
+\section{Introduction}
+\par The aim of our paper is to expand upon this work to analyze peristaltic motion using a friction model which we believe is more relevant to the field of soft-bodied robotics by incorporating a non-linear friction force that is compatible with the features of elastic meta-materials. Using this model, we will analytically solve for traveling wave solutions of the equation of motion. In order to evaluate the accuracy of our analytical solution, we will also solve the equation of motion using numerical methods.
+\par As there is no known explicit solution for our equation of motion, we will use a perturbative solution and thus analytically approximate our result. The numerical comparison will keep our analytical results reasonable.
+\par Through this comparison we can draw our most important results, namely that the form of both our numerical and analytical approximations agree and when we graph our results, they both produce similar answers. 
+\par (Expanded Middle Section)
+\par With a verified solution to our equation, we can then derive the important information from our solution. We can get an energy dissipation rate through substitution of our solution into an appropriate equation. From that disipation rate we can find the velocity at which the crawler should be moving at. Both of these pieces of information are very important for actually using this crawler model to describe a physical situation.
+
+\section{Project Description}
+\par insert from the other docs
+
+\section{Summary and Conclusions}
+\par We successfully derived a non-linear partial differential equation to model the motion of a limbless crawler. With this model, we were able to solve it using perturbative and generate a result that is reasonably close to our numerical solution of the same model. This insight could prove important in many applications, for example by enabling the creation of robots for medical services 
+\par (Section on precise results. Perhaps compare with Tanaka?)
+\par An important future area of research to focus on would be comparing this model not just to itself through different solving methods, but actually comparing it to real world limbless crawlers and real world peristaltic motion. There are numerous difficulties in doing this, for example an organic peristaltic crawler like a worm would be unlikely to move in a consistent and uniform manner, and even a robotic crawler would be under the influence of numerous factors we did not account for. Nonetheless, this area of exploration could still provide insight and would useful in verification.
+\par Within the frame of mathematically modeling this motion another area of research could be on solving the equation with the involvement of the viscous term. We ignored it due to its perceived unimportance but it is possible that we missed a certain nuance in doing this. This would very likely add a lot more complexity to our process and require new mathematical methods we did not employ, but the results could be fruitful and we cannot truly know without trying.  
+
+\section{Appendix}
+\par I can't put much here right now but I can when I have the code.
+
+
+\begin{thebibliography}{9}
+\bibitem{Shivamoggi}
+Shivamoggi, B. K. (2003). Perturbation methods for differential equations. Birkhäuser.
+
+\end{thebibliography}
+
+
+\end{document}
