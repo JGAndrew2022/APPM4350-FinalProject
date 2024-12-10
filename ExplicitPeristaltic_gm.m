@@ -56,11 +56,10 @@ classdef ExplicitPeristaltic_gm
         F_0 = 1e3; 
         F_1 = 1e4;
         a = 5;
-      
-        col = (F_1*tslope.^2+F_0);
-        col(tslope<0) = -a*F_1*(tslope(tslope<0)).^2-F_0;
+        
+        col = (F_1*tslope+F_0);
+        col(tslope<0) = a*F_1*(tslope(tslope<0))-F_0;
         col(tslope == 0)= 0;
-      
     end
 
     % forcing function derivative
